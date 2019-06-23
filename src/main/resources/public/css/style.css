@@ -32,11 +32,13 @@ html{
 /*------------------------------------
 			SCROLL BAR
 ---------------------------------------*/
-body::-webkit-scrollbar {
-  width: 8px;
+body::-webkit-scrollbar,
+ #newMember::-webkit-scrollbar{
+  width: 5px;
   background-color: rgb(119, 119, 117);
 }
-body::-webkit-scrollbar-thumb {
+body::-webkit-scrollbar-thumb,
+ #newMember::-webkit-scrollbar-thumb{
   background-color: rgb(48, 116, 52);
   border-radius: 30px;
 }
@@ -433,10 +435,10 @@ position: absolute;
 }
 #newMember{
   width: 100%;
-  position: fixed;
-  top: 15vh;
+  position: absolute;
+	overflow: auto;
   left: -100%;
-  min-height: 85vh;
+  height: 85vh;
   background: rgb(0, 0, 0);
   z-index: 1000;
   text-align: center;

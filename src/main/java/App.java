@@ -54,10 +54,9 @@ public class App {
             ArrayList<Squad> squads = Squad.getInstances();
             model.put("squads",squads);
             ArrayList<Hero> members = Hero.getAllInstances();
-            model.put("members",members);
-//            ArrayList<Hero> testMember = new Squad().getSquadMembers();
-
-//            model.put("newSquadMember", testMember);
+            model.put("heroes",members);
+            Squad newSquad = Squad.findBySquadId(1);
+            model.put("allSquadMembers", newSquad.getSquadMembers());
             return new ModelAndView(model, "squad.hbs");
         }, new HandlebarsTemplateEngine());
 
@@ -66,7 +65,7 @@ public class App {
             String squadName = req.queryParams("squadName");
             Integer size = Integer.parseInt(req.queryParams("size"));
             String cause = req.queryParams("cause");
-            Squad newSquad = new Squad(squadName,size,cause,Hero.getAllInstances());
+            Squad newSquad = new Squad(squadName,size,cause);
             req.session().attribute("item",squadName);
             model.put("item",req.session().attribute("item"));
             return new ModelAndView(model,"success.hbs");
@@ -85,13 +84,25 @@ public class App {
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
 
+        get("/new/member/:squadId",(req,res)->{
+            Map<String, Object> model = new HashMap<>();
+            req.session().attribute("selectedSquad",req.params("squadId"));
+            model.put("selectedSquad", req.session().attribute("selectedSquad"));
+            model.put("item",1);
+            return new ModelAndView(model, "success.hbs");
+        },new HandlebarsTemplateEngine());
+
         get("/squad/new/:id",(req,res)->{
             Map<String, Object> model = new HashMap<>();
             int id= Integer.parseInt(req.params(":id"));
             Hero newMember = Hero.findById(id);
-            model.put("newMember", newMember.getName());
-//            ArrayList<Squad> members = Squad.setUpNewSquad().getSquadMembers();
+            Squad newSquad = Squad.findBySquadId(1);
+            newSquad.setSquadMembers(newMember);
+            model.put("item", newMember.getName());
+            model.put("newHero",newSquad.getSquadName());
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
+
+
     }
 }
