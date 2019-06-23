@@ -30,6 +30,7 @@ public class Hero {
     public String getPower() {return this.power;}
     public String getWeakness() {return this.weakness;}
     public static ArrayList<Hero> getAllInstances() {return instances;}
+    public static void clearAllHeroes(){instances.clear();}
     public int getId(){return id;}
     public static Hero findById(int id) {return instances.get(id-1);}
 

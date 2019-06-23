@@ -40,6 +40,7 @@ public class HeroTest {
     }
     @Test
     public void newHero_getId_Int() {
+        Hero.clearAllHeroes();
         Hero newHero = Hero.setUpNewHero();
         Hero another = Hero.setUpNewHero();
         Hero another1 = Hero.setUpNewHero();
@@ -47,6 +48,7 @@ public class HeroTest {
     }
     @Test
     public void newHero_findById_id() {
+        Hero.clearAllHeroes();
         Hero newHero = Hero.setUpNewHero();
         Hero another = Hero.setUpNewHero();
         assertEquals(2,Hero.findById(another.getId()).getId());
