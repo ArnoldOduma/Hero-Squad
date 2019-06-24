@@ -22,4 +22,4 @@ dependencies {
 
 }
 
-task sytage(dependsOn: ['clean', 'installDist'])
+task stage(dependsOn: ['clean', 'installDist'])
