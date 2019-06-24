@@ -37,7 +37,7 @@ public class SquadTest {
         Squad newSquad = Squad.setUpNewSquad();
         Hero newHero = Hero.setUpNewHero();
         Hero newHero1 = Hero.setUpNewHero1();
-        newSquad.getSquadMembers();
+        newSquad.setSquadMembers(newHero);
         assertEquals("Arnold",newSquad.getSquadMembers().get(0).getName());
     }
 
@@ -63,11 +63,12 @@ public class SquadTest {
 
     @Test
     public void setNewMember_hero(){
+        Hero.clearAllHeroes();
         Hero newHwero = Hero.setUpNewHero();
         Squad testSquad = Squad.setUpNewSquad();
         testSquad.setSquadMembers(newHwero);
 
-        assertEquals("1",testSquad.getSquadMembers());
+        assertEquals(1,testSquad.getSquadMembers().get(0).getId());
     }
 
 
