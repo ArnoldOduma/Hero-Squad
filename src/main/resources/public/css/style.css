@@ -18,12 +18,17 @@ a{
   padding: 5px 20px;
   font-family: 'Abel', sans-serif;
   border-radius: 20px;
+  margin-top: 5px;
 
 }
 .btns:hover{
   background: rgb(0, 0, 0);
   box-shadow: 0 0 5px rgba(255, 255, 255, 0.24);
   color: white;
+}
+.btn-green{
+	background: green;
+	margin-top: 5px;
 }
 html{
   scroll-behavior: smooth;
@@ -152,7 +157,7 @@ nav>ul li{
   padding: 5px;
   width: 60%;
   position: absolute;
-  bottom: 7%;
+  bottom: 5%;
   left: 20%;
   cursor: pointer;
   font-family: 'Abel', sans-serif;
@@ -494,4 +499,17 @@ position: absolute;
   position: relative;
   left: 15%;
   padding: 2px 20px;
+}
+
+@media only screen and (max-width: 700px){
+	.hero-img{
+		width: 100%;
+	}
+
+	.hero-desc{
+		width: 90%;
+		margin: 0px;
+		margin-top: -50%;
+	}
+
 }
