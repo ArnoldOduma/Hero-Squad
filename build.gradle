@@ -21,5 +21,4 @@ dependencies {
     compile "com.sparkjava:spark-template-handlebars:2.5.5"
 
 }
-
 task stage(dependsOn: ['clean', 'installDist'])
